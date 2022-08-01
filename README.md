@@ -49,7 +49,7 @@
 
 # Now, Connect Password based SSH logging or Connection testing and need to append the option --ask-pass that means will make ansible prompt for the password of the host-node user. 
 
-    Validity of SSH credentials (node user)
+   Validity of SSH credentials (node user)
 
          Syntax: $ansible all -m ping --ask-pass
      SSH password:
