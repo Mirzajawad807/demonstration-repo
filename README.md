@@ -45,7 +45,7 @@ Note: You must create a password for the user of the node server which will be t
  
 
 
-#############SSH with Passwordless Logging################ 
+###################SSH with Passwordless Logging#####################
 
 Step1. Create SSH Key-pair like Private and Public Key pair on the Ansible Master node.
 
@@ -59,7 +59,7 @@ Copy the Public Key to my both Host-node machine (node1 and node2) below an exam
   
     sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user2@172.31.19.21 #Host_node_2
  
- Note: Once triggered this command it will copy the content of id_rsa.pub key under the .ssh file for ec2-user of the node server side 
+ Once triggered this command it will copy the content of id_rsa.pub key under the .ssh file for ec2-user of the node server side 
 
 
 
