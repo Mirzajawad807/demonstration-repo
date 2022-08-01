@@ -35,7 +35,7 @@
 
 # To List of inventories below command
 
-   Syntax: $ansible-inventory --list -y
+    Syntax: $ansible-inventory --list -y
             all:
               children:
                 server:
@@ -51,8 +51,8 @@
 
     Validity of SSH credentials (node user)
 
-    Syntax: $ansible all -m ping --ask-pass
-SSH password:
+         Syntax: $ansible all -m ping --ask-pass
+     SSH password:
              172.31.84.8 | SUCCESS => {
                  "ansible_facts": {
                      "discovered_interpreter_python": "/usr/bin/python"
