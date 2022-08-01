@@ -24,7 +24,10 @@
 # Now, configure the ansible hosts inventory file which is come with default ansible inventory file.
  
    Syntax: $Sudo vim /etc/ansible/hosts
-
+   
+            [server]
+            172.31.84.8 ansible_ssh_user=ec2-user    # IP of Host_node1 and user_name
+            172.31.19.21 ansible_ssh_user=ec2-user   # IP of Host_node2 and user_name
 
  Once finish with this setup in host file
  
@@ -33,14 +36,37 @@
 # To List of inventories below command
 
    Syntax: $ansible-inventory --list -y
- 
+            all:
+              children:
+                server:
+                  hosts:
+                    172.31.84.8:
+                      ansible_ssh_user: ec2-user
+                    172.31.19.21 
+                      ansible_ssh_user: ec2-user
+                ungrouped: {}
 
 
 # Now, Connect Password based SSH logging or Connection testing and need to append the option --ask-pass that means will make ansible prompt for the password of the host-node user. 
 
     Validity of SSH credentials (node user)
 
-     Syntax: $ansible all -m ping --ask-pass
+    Syntax: $ansible all -m ping --ask-pass
+SSH password:
+             172.31.84.8 | SUCCESS => {
+                 "ansible_facts": {
+                     "discovered_interpreter_python": "/usr/bin/python"
+                 },
+                 "changed": false,
+                 "ping": "pong"
+             }
+             172.31.19.21 | SUCCESS => {
+                 "ansible_facts": {
+                     "discovered_interpreter_python": "/usr/bin/python"
+                 },
+                 "changed": false,
+                 "ping": "pong"
+             }
 
 Note: You must create a password for the user of the node server which will be the default user no need to create new one. 
  
@@ -64,7 +90,7 @@ Note: You must create a password for the user of the node server which will be t
 
 
 
-# Now, SSH testing to host node from Master node
+# Now, SSH testing to host-node without a password from Master node 
    
    Syntax: $ssh ec2-user@172.32.84.8
  
@@ -72,7 +98,22 @@ Note: You must create a password for the user of the node server which will be t
 
 # This allow to control host-node without a password from Master-node side
 
-   Syntax: $ansible -m ping all
+    Syntax: $ansible -m ping all
+             172.31.84.8 | SUCCESS => {
+                 "ansible_facts": {
+                     "discovered_interpreter_python": "/usr/bin/python"
+                 },
+                 "changed": false,
+                 "ping": "pong"
+             }
+             172.31.19.21 | SUCCESS => {
+                 "ansible_facts": {
+                     "discovered_interpreter_python": "/usr/bin/python"
+                 },
+                 "changed": false,
+                 "ping": "pong"
+             }
+   
  
  
 
