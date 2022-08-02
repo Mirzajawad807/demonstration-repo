@@ -115,6 +115,19 @@ Note: You must set the password for the user of the node server which will be th
              }
    
  
+ # Work with ansible-playbook with variable to install httpd server
  
+     Syntax: $vi vars.yml
+              ---
+              - hosts: demo
+              user: ec2-user
+              become: yes
+              connection: ssh
+              vars:
+                      pkgname: httpd
+              tasks:
+                              - name: install HTTPD server on centos 7
+                                action: yum name='{{pkgname}}' state=present
+
 
                                                                              
