@@ -144,5 +144,56 @@ After setup the configuration and executed the vars.yml file to install httpd se
              172.31.20.162              : ok=2    changed=1    unreachable=0    failed=0    skipped=0
              rescued=0    ignored=0
 
+# Work with Handlers Section
+  A handler is something that means same as a task, but it will run when called by another task
+                                     or
+  Hanlers are just like regular tasks in an ansible playbook, but are only run if the task contain a notify direction and also indicates that it change something.
+  
+    Syntax: $vi handlers.yml
+             ---
+             - hosts: demo
+               user: ec2-user
+               become: yes
+               connection: ssh
+               tasks:
+                     - name: install httpd server on centos
+                       action: yum name=httpd state=installed
+                       notify: restart httpd
+               handlers:
+                       - name: restart httpd
+                         action: service name=httpd state=restarted
 
-                                                                             
+-------First chech the code below the command------------------------------------------
+   
+      Syntax: $ansible-playbook handlers.yml --check # That means to check the bug or error within the code, but it will not execute the code
+      
+      
+# Now run the handlers.yml file
+      
+      Syntax: $ansible-playbook handlers.yml
+               PLAY [demo] ********************************************************************
+
+               ASK [Gathering Facts] *********************************************************
+               ok: [172.31.20.162]
+
+               TASK [install httpd server on centos] ******************************************
+               changed: [172.31.20.162]
+
+               RUNNING HANDLER [restart httpd] ************************************************
+               changed: [172.31.20.162]
+
+               PLAY RECAP *********************************************************************
+               172.31.20.162              : ok=3    changed=2    unreachable=0    failed=0    skipped=0
+               rescued=0    ignored=0
+
+   Now worked successfully the code and deploy httpp server on node-server side form master node
+
+     
+  
+     
+     
+     
+     
+     
+     
+     
