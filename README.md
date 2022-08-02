@@ -8,7 +8,7 @@
    Syntax: $sudo apt install ansible -y
   
 
-# check Ansible version
+# Once installation done check the Ansible version
 
    Syntax: $ansible --version
  
@@ -33,7 +33,7 @@
  
  
 
-# To List of inventories below command
+# Now, List of inventories below syntax
 
     Syntax: $ansible-inventory --list -y
             all:
@@ -68,7 +68,7 @@
                  "ping": "pong"
              }
 
-Note: You must create a password for the user of the node server which will be the default user no need to create new one. 
+Note: You must set the password for the user of the node server which will be the default user or you can create new one give them sudo privileged. 
  
 
 
