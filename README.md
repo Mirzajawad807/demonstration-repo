@@ -115,7 +115,7 @@ Note: You must set the password for the user of the node server which will be th
              }
    
  
- # Work with ansible-playbook with variable to install httpd server
+ # Work with ansible-playbook defiend with variable to install httpd server
  
      Syntax: $vi vars.yml
               ---
@@ -128,6 +128,21 @@ Note: You must set the password for the user of the node server which will be th
               tasks:
                               - name: install HTTPD server on centos 7
                                 action: yum name='{{pkgname}}' state=present
+
+After setup the configuration and executed the vars.yml file to install httpd server for node server from master node below an output
+
+    Syntax: $ansible-playbook vars.yml
+             PLAY [demo] ********************************************************************
+
+             TASK [Gathering Facts] *********************************************************
+             ok: [172.31.20.162]
+
+             TASK [install HTTPD server on centos 7] ****************************************
+             changed: [172.31.20.162]
+
+             PLAY RECAP *********************************************************************
+             172.31.20.162              : ok=2    changed=1    unreachable=0    failed=0    skipped=0
+             rescued=0    ignored=0
 
 
                                                                              
