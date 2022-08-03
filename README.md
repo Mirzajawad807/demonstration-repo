@@ -32,6 +32,12 @@
  Once finish with this setup in host file
  
  
+ # Now do make some changes inside /etc/ansible/ansible.cfg file
+   
+   Syntax: $sudo vim /etc/ansible/ansible.cfg
+            #inventory /etc/ansible/hosts   # Remove commit 
+ 
+ 
 
 # Now, List of inventories below syntax
 
@@ -86,7 +92,7 @@ Note: You must set the password for the user of the node server which will be th
   
    Syntax: $sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user2@172.31.19.21 #Host_node_2
  
-# Once triggered this command it will copy the content of id_rsa.pub key in user side inside the .ssh/authorized_key file in the node server 
+ Once triggered this command it will copy the content of id_rsa.pub key in user side inside the /home/user_name/.ssh/authorized_key file in the node server 
 
 
 
