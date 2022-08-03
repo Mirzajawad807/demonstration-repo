@@ -86,7 +86,7 @@ Note: You must set the password for the user of the node server which will be th
   
    Syntax: $sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user2@172.31.19.21 #Host_node_2
  
-# Once triggered this command it will copy the content of id_rsa.pub key under the .ssh file for ec2-user of the node server side 
+# Once triggered this command it will copy the content of id_rsa.pub key in user side inside the .ssh/authorized_key file in the node server 
 
 
 
