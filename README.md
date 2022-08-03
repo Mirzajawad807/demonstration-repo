@@ -1,33 +1,31 @@
 # SSH Password-Based authentication to connect to the node from Master node
 
 
-# Installation Ansible on Ubuntu 20.04.
+---------Installation Ansible on Ubuntu 20.04.----------
  
-   Syntax: $sudo apt update
+            Syntax: $sudo apt update
  
-   Syntax: $sudo apt install ansible -y
+            Syntax: $sudo apt install ansible -y
   
 
-# Once installation done check the Ansible version
+-----Once installation done check the Ansible version---
 
-   Syntax: $ansible --version
+            Syntax: $ansible --version
+ 
+
+----Installing sshpass  act as SSH authentication mechanism-----
+ 
+            Syntax: $sudo apt install sshpass
  
 
 
-
-# Installing sshpass  act as SSH authentication mechanism.
+-----Now, configure the ansible hosts inventory file which is come with default ansible inventory file----
  
-   Syntax: $sudo apt install sshpass
- 
-
-
-# Now, configure the ansible hosts inventory file which is come with default ansible inventory file.
- 
-   Syntax: $Sudo vim /etc/ansible/hosts
+            Syntax: $Sudo vim /etc/ansible/hosts
    
-            [server]
-            172.31.84.8 ansible_ssh_user=ec2-user    # IP of Host_node1 and user_name
-            172.31.19.21 ansible_ssh_user=ec2-user   # IP of Host_node2 and user_name
+                     [server]
+                     172.31.84.8 ansible_ssh_user=ec2-user    # IP of Host_node1 and user_name
+                     172.31.19.21 ansible_ssh_user=ec2-user   # IP of Host_node2 and user_name
 
  Once finish with this setup in host file
  
