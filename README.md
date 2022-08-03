@@ -35,7 +35,7 @@
  # Now do make some changes inside /etc/ansible/ansible.cfg file
    
    Syntax: $sudo vim /etc/ansible/ansible.cfg
-            #inventory /etc/ansible/hosts   # Remove commit 
+            inventory /etc/ansible/hosts   # Removed commit 
  
  
 
