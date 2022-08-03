@@ -27,13 +27,13 @@
                      172.31.84.8 ansible_ssh_user=ec2-user    # IP of Host_node1 and user_name
                      172.31.19.21 ansible_ssh_user=ec2-user   # IP of Host_node2 and user_name
 
- Once finish with this setup in host file
+         Once finish with this setup in host file
  
  
- # Now do make some changes inside /etc/ansible/ansible.cfg file
+------Now do make some changes inside /etc/ansible/ansible.cfg file------
    
-    Syntax: $sudo vim /etc/ansible/ansible.cfg
-            # inventory /etc/ansible/hosts   # Remove commit 
+            Syntax: $sudo vim /etc/ansible/ansible.cfg
+                     # inventory /etc/ansible/hosts   # Remove commit 
  
  
 
@@ -78,29 +78,29 @@ Note: You must set the password for the user of the node server which will be th
 
 # SSH with Passwordless Logging
 
-# Create SSH Key-pair like Private and Public Key pair on the Ansible Master node.
+------Create SSH Key-pair like Private and Public Key pair on the Ansible Master node------
 
-   Syntax: $ssh-keygen -t rsa
+        Syntax: $ssh-keygen -t rsa
  
 
 
-# Copy the Public Key to my both Host-node machine (node1 and node2) below an example.
+-------Copy the Public Key to my both Host-node machine (node1 and node2) below an example----
    
-   Syntax: $sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user1@172.31.19.21 #Host_node_1
+        Syntax: $sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user1@172.31.19.21 #Host_node_1
   
-   Syntax: $sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user2@172.31.19.21 #Host_node_2
+        Syntax: $sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user2@172.31.19.21 #Host_node_2
  
  Once triggered this command it will copy the content of id_rsa.pub key in user side inside the /home/user_name/.ssh/authorized_key file in the node server 
 
 
 
-# Now, SSH testing to host-node without a password from Master node 
+-----Now, SSH testing to host-node without a password from Master node------ 
    
-   Syntax: $ssh ec2-user@172.32.84.8
+        Syntax: $ssh ec2-user@172.32.84.8
  
 
 
-# This allow to control host-node without a password from Master-node side
+-----This allow to control host-node without a password from Master-node side------
 
     Syntax: $ansible -m ping all
              172.31.84.8 | SUCCESS => {
@@ -191,11 +191,48 @@ After setup the configuration and executed the vars.yml file to install httpd se
                rescued=0    ignored=0
 
    Now worked successfully the code and deploy httpp server on node-server side form master node
+   
+   
+   
+   
+# Work with loops
 
-     
-  
-     
-     
+          Syntax: $vim loops.yml
+                   --- # MY LOOPS PLAYBOOK
+                   - hosts: demo
+                     user: ec2-user
+                     become: yes
+                     connection: ssh
+                     tasks:
+                             - name: add list of users in my nodes
+                               user: name='{{item}}' state=present  # Creating multiple users with user module
+                               with_items:
+                                       - Gufran
+                                       - Jhon
+                                       - Zeba
+                                       - Rahul
+                                       - Sami
+
+# Now, Execute loops.yml file to create multiple users with user module
+
+          Snytax: $ansible-playbook loops.yml
+                   PLAY [demo] ********************************************************************
+
+                   TASK [Gathering Facts] *********************************************************
+                   ok: [172.31.20.162]
+
+                   TASK [add list of users in my nodes] *******************************************
+                   changed: [172.31.20.162] => (item=Gufran)
+                   changed: [172.31.20.162] => (item=Jhon)
+                   changed: [172.31.20.162] => (item=Zeba)
+                   changed: [172.31.20.162] => (item=Rahul)
+                   changed: [172.31.20.162] => (item=Sami)
+
+                   PLAY RECAP *********************************************************************
+                   172.31.20.162              : ok=2    changed=1    unreachable=0    failed=0    
+                   skipped=0    rescued=0    ignored=0
+
+     Code successfully done and created those users on node server
      
      
      
