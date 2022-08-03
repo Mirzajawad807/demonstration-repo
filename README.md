@@ -39,7 +39,7 @@
  
  
 
-# Now, List of inventories below syntax
+# List of inventories below syntax
 
     Syntax: $ansible-inventory --list -y
             all:
