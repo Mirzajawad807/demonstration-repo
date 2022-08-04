@@ -2,15 +2,17 @@
 
 
 ---------Ansible installation on Ubuntu 20.04.----------
-    install-ansible.sh       
-           #!/bin/bash
-            sudo apt update
-            sudo apt install ansible -y
+           
+   install-ansible.sh       
+             
+                         #!/bin/bash
+                         sudo apt update
+                         sudo apt install ansible -y
  
 
 # Installing sshpass  act as SSH authentication mechanism
  
-            sudo apt install sshpass
+              sudo apt install sshpass
  
 
 -----Now, add both IPs and user_name of node1 and node2 with ansible inventor file like /etc/ansible/hosts----
@@ -18,7 +20,7 @@
            
             echo -e "[demo] \n172.31.84.8 ansible_ssh_user=ec2-user \n172.31.19.21 ansible_ssh_user=ec2-user" >> /etc/ansible/hosts
 
-    Once finish with this setup in host file
+   Once finish with this setup in host file
  
  
 ---------------Now, remove comment (#) inside /etc/ansible/ansible.cfg file------------------------
@@ -28,9 +30,10 @@
  
  
 -----Allow PasswordAuthentication in server side on your both node server inside /etc/ssh/sshd file-------
-            sudo vim /etc/ssh/sshd
+            
+  sudo vim /etc/ssh/sshd
    
-            PasswordAuthentication yes 
+             PasswordAuthentication yes 
             
 
 # List of inventories below syntax
@@ -50,24 +53,25 @@
 
 # Now, Connect Password based SSH logging or Connection testing and need to append the option --ask-pass that means will make ansible prompt for the password of node server user. 
 
----------Validity of SSH credentials (node user)--------
+-------------Validity of SSH credentials (node user)--------
 
- ansible all -m ping --ask-pass
-     SSH password:
-             172.31.84.8 | SUCCESS => {
-                 "ansible_facts": {
-                     "discovered_interpreter_python": "/usr/bin/python"
-                 },
-                 "changed": false,
-                 "ping": "pong"
-             }
-             172.31.19.21 | SUCCESS => {
-                 "ansible_facts": {
-                     "discovered_interpreter_python": "/usr/bin/python"
-                 },
-                 "changed": false,
-                 "ping": "pong"
-             }
+   ansible all -m ping --ask-pass
+    
+                          SSH password:
+                          172.31.84.8 | SUCCESS => {
+                              "ansible_facts": {
+                                  "discovered_interpreter_python": "/usr/bin/python"
+                              },
+                              "changed": false,
+                              "ping": "pong"
+                          }
+                         172.31.19.21 | SUCCESS => {
+                            "ansible_facts": {
+                                "discovered_interpreter_python": "/usr/bin/python"
+                            },
+                            "changed": false,
+                            "ping": "pong"
+                         }
 
 Note: You must set the password for the user of the node server which will be the default user or you can create new one give them sudo privileged. 
  
@@ -99,7 +103,8 @@ Note: You must set the password for the user of the node server which will be th
 
 ---------This allow to control host-node without a password from Master-node side that means passwordless authentication------
 
-      ansible -m ping all
+   ansible -m ping all
+      
              172.31.84.8 | SUCCESS => {
                  "ansible_facts": {
                      "discovered_interpreter_python": "/usr/bin/python"
@@ -118,7 +123,7 @@ Note: You must set the password for the user of the node server which will be th
  
  # Work with ansible-playbook defiend with variable to install httpd server
  
-     vim vars.yml
+   vim vars.yml
      
               ---
               - hosts: demo
@@ -133,7 +138,7 @@ Note: You must set the password for the user of the node server which will be th
 
 After setup the configuration and executed the vars.yml file to install httpd server on both node server from master node below an output
 
-          ansible-playbook vars.yml
+   ansible-playbook vars.yml
             
              PLAY [demo] ********************************************************************
 
@@ -155,7 +160,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
                                      or
   Hanlers are just like regular tasks in an ansible playbook, but are only run if the task contain a notify direction and also indicates that it change something.
   
-     vi handlers.yml
+   vi handlers.yml
      
              ---
              - hosts: demo
@@ -177,7 +182,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
       
 -----------Now run the handlers.yml file----------------------------
       
-       ansible-playbook handlers.yml
+   ansible-playbook handlers.yml
       
                PLAY [demo] ********************************************************************
 
@@ -200,7 +205,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
    
 # Work with loops
 
-          vim loops.yml
+   vim loops.yml
           
                    --- # MY LOOPS PLAYBOOK
                    - hosts: demo
@@ -219,7 +224,8 @@ After setup the configuration and executed the vars.yml file to install httpd se
 
 ----------Now, Execute loops.yml file to create multiple users with user module-------------------
 
-          Snytax: $ansible-playbook loops.yml
+   ansible-playbook loops.yml
+           
                    PLAY [demo] ********************************************************************
 
                    TASK [Gathering Facts] *********************************************************
