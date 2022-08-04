@@ -15,7 +15,9 @@
    $ sudo apt install sshpass
  
 
------Now, add both IPs and user_name of node1 and node2 server with ansible inventor file like /etc/ansible/hosts----
+
+
+Now, add both IPs and user_name of node1 and node2 server with ansible inventor file like /etc/ansible/hosts
 
            
             echo -e "[demo] \n172.31.84.8 ansible_ssh_user=ec2-user \n172.31.19.21 ansible_ssh_user=ec2-user" >> /etc/ansible/hosts
@@ -23,19 +25,23 @@
    Once finish with this setup in host file
  
  
----------------Now, remove comment (#) inside /etc/ansible/ansible.cfg file------------------------
+---------------Remove comment (#) inside /etc/ansible/ansible.cfg file------------------------
    
   $ sudo vim /etc/ansible/ansible.cfg
                      
                      # inventory /etc/ansible/hosts 
  
  
------Allow PasswordAuthentication in server side on your both node server inside /etc/ssh/sshd file-------
+
+
+Allow PasswordAuthentication in server side on your both node server inside /etc/ssh/sshd file
             
  $ sudo vim /etc/ssh/sshd
    
              PasswordAuthentication yes 
             
+
+
 
 # List of inventories below syntax
 
@@ -52,7 +58,9 @@
                 ungrouped: {}
 
 
-# Now, Connect Password based SSH logging or Connection testing and need to append the option --ask-pass that means will make ansible prompt for the password of node server user. 
+
+
+# Connect Password based SSH logging or Connection testing and need to append the option --ask-pass that means will make ansible prompt for the password of user on node server, 
 
 -------------Validity of SSH credentials (node user)--------
 
@@ -74,7 +82,7 @@
                             "ping": "pong"
                          }
 
-Note: You must set the password for the user of the node server which will be the default user or you can create new one give them sudo privileged. 
+Note: You must set the password for the user of the node server which will be the default user (default user have already sudo privilege) or you can create new one give them sudo privileged. 
  
 
 
