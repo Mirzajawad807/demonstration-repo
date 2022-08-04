@@ -3,7 +3,7 @@
 
 ---------Ansible installation on Ubuntu 20.04.----------
            
-   install-ansible.sh       
+  $ install-ansible.sh       
              
                          #!/bin/bash
                          sudo apt update
@@ -12,7 +12,7 @@
 
 # Installing sshpass  act as SSH authentication mechanism
  
-              sudo apt install sshpass
+   $ sudo apt install sshpass
  
 
 -----Now, add both IPs and user_name of node1 and node2 server with ansible inventor file like /etc/ansible/hosts----
@@ -25,20 +25,21 @@
  
 ---------------Now, remove comment (#) inside /etc/ansible/ansible.cfg file------------------------
    
-                     sudo vim /etc/ansible/ansible.cfg
+  $ sudo vim /etc/ansible/ansible.cfg
+                     
                      # inventory /etc/ansible/hosts 
  
  
 -----Allow PasswordAuthentication in server side on your both node server inside /etc/ssh/sshd file-------
             
-  sudo vim /etc/ssh/sshd
+ $ sudo vim /etc/ssh/sshd
    
              PasswordAuthentication yes 
             
 
 # List of inventories below syntax
 
-   ansible-inventory --list -y
+  $ ansible-inventory --list -y
             
             all:
               children:
@@ -55,7 +56,7 @@
 
 -------------Validity of SSH credentials (node user)--------
 
-   ansible all -m ping --ask-pass
+  $ ansible all -m ping --ask-pass
     
                           SSH password:
                           172.31.84.8 | SUCCESS => {
@@ -79,31 +80,29 @@ Note: You must set the password for the user of the node server which will be th
 
 # SSH with Passwordless Logging
 
-----------------Create SSH Key-pair like Private and Public Key pair on the Ansible Master node---------
+-----------Create SSH Key-pair like Private and Public Key pair on the Ansible Master node---------
 
-       ssh-keygen -t rsa
+  $ ssh-keygen -t rsa
  
 
 
--------------Copy the Public Key to my both Host-node machine (node1 and node2) below an example----------------
+-------------Copy the Public Key on both node from master node----------------
    
-            sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user@172.31.19.21 # node_1
+   $ sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user@172.31.19.21 # node_1
   
-            sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user@172.31.19.21 # node_2
- 
  Once triggered this command it will copy the content of id_rsa.pub key in user side inside the /home/user_name/.ssh/authorized_key file in the node server 
 
 
 
-----------------Now, SSH testing to host-node without a password from Master node---------------------- 
+-----------Now, SSH testing to host-node without a password from Master node---------------- 
    
-            ssh ec2-user@172.32.84.8
+   $ ssh ec2-user@172.32.84.8
  
 
 
 ---------This allow to control host-node without a password from Master-node side that means passwordless authentication------
 
-   ansible -m ping all
+  $ ansible -m ping all
       
              172.31.84.8 | SUCCESS => {
                  "ansible_facts": {
@@ -125,7 +124,7 @@ Note: You must set the password for the user of the node server which will be th
 
 # Work with ansible-playbook defiend with variable to install httpd server on one node server
  
-   vim vars.yml
+  $ vim vars.yml
      
               ---
               - hosts: demo
@@ -140,7 +139,7 @@ Note: You must set the password for the user of the node server which will be th
 
 After setup the configuration and executed the vars.yml file to install httpd server on node server from master node below an output
 
-   ansible-playbook vars.yml
+  $ ansible-playbook vars.yml
             
              PLAY [demo] ********************************************************************
 
@@ -162,7 +161,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
                                      or
   Hanlers are just like regular tasks in an ansible playbook, but are only run if the task contain a notify direction and also indicates that it change something.
   
-   vi handlers.yml
+  $ vi handlers.yml
      
              ---
              - hosts: demo
@@ -184,7 +183,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
       
 -----------Now run the handlers.yml file----------------------------
       
-   ansible-playbook handlers.yml
+  $ ansible-playbook handlers.yml
       
                PLAY [demo] ********************************************************************
 
@@ -207,7 +206,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
    
 # Work with loops
 
-   vim loops.yml
+  $ vim loops.yml
           
                    --- # MY LOOPS PLAYBOOK
                    - hosts: demo
@@ -226,7 +225,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
 
 ----------Now, Execute loops.yml file to create multiple users with user module-------------------
 
-   ansible-playbook loops.yml
+  $ ansible-playbook loops.yml
            
                    PLAY [demo] ********************************************************************
 
