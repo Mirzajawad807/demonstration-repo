@@ -15,7 +15,7 @@
               sudo apt install sshpass
  
 
------Now, add both IPs and user_name of node1 and node2 with ansible inventor file like /etc/ansible/hosts----
+-----Now, add both IPs and user_name of node1 and node2 server with ansible inventor file like /etc/ansible/hosts----
 
            
             echo -e "[demo] \n172.31.84.8 ansible_ssh_user=ec2-user \n172.31.19.21 ansible_ssh_user=ec2-user" >> /etc/ansible/hosts
