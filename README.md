@@ -38,7 +38,7 @@
 
 # List of inventories below syntax
 
-        ansible-inventory --list -y
+   ansible-inventory --list -y
             
             all:
               children:
