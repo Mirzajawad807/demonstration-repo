@@ -43,7 +43,7 @@ Allow PasswordAuthentication in server side on your both node server inside /etc
 
 
 
-# List of inventories below syntax
+# List of inventories below output
 
   $ ansible-inventory --list -y
             
