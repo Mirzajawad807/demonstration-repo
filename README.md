@@ -74,13 +74,13 @@ Allow PasswordAuthentication in server side on your both node server inside /etc
                               "changed": false,
                               "ping": "pong"
                           }
-                         172.31.19.21 | SUCCESS => {
+                          172.31.19.21 | SUCCESS => {
                             "ansible_facts": {
                                 "discovered_interpreter_python": "/usr/bin/python"
                             },
                             "changed": false,
                             "ping": "pong"
-                         }
+                          }
 
 Note: You must set the password for the user of the node server which will be the default user (default user have already sudo privilege) or you can create new one give them sudo privileged. 
  
