@@ -121,7 +121,9 @@ Note: You must set the password for the user of the node server which will be th
              }
    
  
- # Work with ansible-playbook defiend with variable to install httpd server
+
+
+# Work with ansible-playbook defiend with variable to install httpd server on one node server
  
    vim vars.yml
      
@@ -136,7 +138,7 @@ Note: You must set the password for the user of the node server which will be th
                               - name: install HTTPD server on centos 7
                                 action: yum name='{{pkgname}}' state=present
 
-After setup the configuration and executed the vars.yml file to install httpd server on both node server from master node below an output
+After setup the configuration and executed the vars.yml file to install httpd server on node server from master node below an output
 
    ansible-playbook vars.yml
             
@@ -199,7 +201,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
                172.31.20.162              : ok=3    changed=2    unreachable=0    failed=0    skipped=0
                rescued=0    ignored=0
 
-   Now worked successfully the code and deploy httpp server on node-server side form master node
+   Now worked successfully the code and deploy httpp server on node-server form master node
    
    
    
@@ -242,7 +244,7 @@ After setup the configuration and executed the vars.yml file to install httpd se
                    172.31.20.162              : ok=2    changed=1    unreachable=0    failed=0    
                    skipped=0    rescued=0    ignored=0
 
-     Code successfully done and created those users on node server
+   Code successfully done and created those users on node server
      
      
      
