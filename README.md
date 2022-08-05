@@ -17,7 +17,7 @@
 
 
 
-Now, add both IPs and user_name of node1 and node2 server with ansible inventor file like /etc/ansible/hosts
+# Now, add both IPs and user_name of node1 and node2 server with ansible inventor file like /etc/ansible/hosts
 
            
             echo -e "[demo] \n172.31.84.8 ansible_ssh_user=ec2-user \n172.31.19.21 ansible_ssh_user=ec2-user" >> /etc/ansible/hosts
@@ -25,7 +25,7 @@ Now, add both IPs and user_name of node1 and node2 server with ansible inventor 
    Once finish with this setup in host file
  
  
----------------Remove comment (#) inside /etc/ansible/ansible.cfg file------------------------
+# Remove comment (#) inside /etc/ansible/ansible.cfg file
    
   $ sudo vim /etc/ansible/ansible.cfg
                      
@@ -94,7 +94,7 @@ Note: You must set the password for the user of the node server which will be th
  
 
 
--------------Copy the Public Key on both node from master node----------------
+-----------Copy the Public Key on both node from master node----------------
    
    $ sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user@172.31.19.21 # node_1
   
@@ -102,13 +102,13 @@ Note: You must set the password for the user of the node server which will be th
 
 
 
------------Now, SSH testing to host-node without a password from Master node---------------- 
+# Now, SSH testing to host-node without a password from Master node 
    
    $ ssh ec2-user@172.32.84.8
  
 
 
----------This allow to control host-node without a password from Master-node side that means passwordless authentication------
+This allow to control host-node without a password from Master-node side that means passwordless authentication
 
   $ ansible -m ping all
       
@@ -144,8 +144,12 @@ Note: You must set the password for the user of the node server which will be th
               tasks:
                               - name: install HTTPD server on centos 7
                                 action: yum name='{{pkgname}}' state=present
+    Once setup with ansible-playbook
 
-After setup the configuration and executed the vars.yml file to install httpd server on node server from master node below an output
+
+
+
+# Run the vars.yml file to install httpd server on node server from master node below an output
 
   $ ansible-playbook vars.yml
             
