@@ -94,9 +94,9 @@ Note: You must set the password for the user of the node server which will be th
  
 
 
------------Copy the Public Key on both node from master node----------------
+---------Copy the Public Key on both node from master node----------------
    
-   $ sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user@172.31.19.21 # node_1
+    $ sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ec2-user@172.31.19.21 # node_1
   
  Once triggered this command it will copy the content of id_rsa.pub key in user side inside the /home/user_name/.ssh/authorized_key file in the node server 
 
@@ -144,12 +144,12 @@ This allow to control host-node without a password from Master-node side that me
               tasks:
                               - name: install HTTPD server on centos 7
                                 action: yum name='{{pkgname}}' state=present
-    Once setup with ansible-playbook
+   Once setup with ansible-playbook
 
 
 
 
-# Run the vars.yml file to install httpd server on node server from master node below an output
+# Run the vars.yml file to install only httpd server on node server from master node below an output
 
   $ ansible-playbook vars.yml
             
@@ -169,9 +169,7 @@ This allow to control host-node without a password from Master-node side that me
 
 # Work with Handlers Section
 
-  A handler is something that means same as a task, but it will run when called by another task
-                                     or
-  Hanlers are just like regular tasks in an ansible playbook, but are only run if the task contain a notify direction and also indicates that it change something.
+A handler is something that means same as a task, but it will run when called by another task Or Hanlers are just like regular tasks in an ansible playbook, but are only run if the task contain a notify direction and also indicates that it change something.
   
   $ vi handlers.yml
      
@@ -188,12 +186,13 @@ This allow to control host-node without a password from Master-node side that me
                        - name: restart httpd
                          action: service name=httpd state=restarted
 
------------You can chech the code before running below the command------------------------------------------
+-----------You can chech the code before running the configuration below th--------------------
    
         ansible-playbook handlers.yml --check           # That means to check the bug or error within the code, but it will not execute the code
       
       
------------Now run the handlers.yml file----------------------------
+      
+# run the handlers.yml file to install and active httpd server on node server 
       
   $ ansible-playbook handlers.yml
       
@@ -212,7 +211,7 @@ This allow to control host-node without a password from Master-node side that me
                172.31.20.162              : ok=3    changed=2    unreachable=0    failed=0    skipped=0
                rescued=0    ignored=0
 
-   Now worked successfully the code and deploy httpp server on node-server form master node
+it's worked successfully and installation done httpd server on node-server form master node
    
    
    
@@ -235,7 +234,10 @@ This allow to control host-node without a password from Master-node side that me
                                        - Rahul
                                        - Sami
 
-----------Now, Execute loops.yml file to create multiple users with user module-------------------
+
+
+
+# Run loops.yml file to create multiple users with user module
 
   $ ansible-playbook loops.yml
            
@@ -255,7 +257,7 @@ This allow to control host-node without a password from Master-node side that me
                    172.31.20.162              : ok=2    changed=1    unreachable=0    failed=0    
                    skipped=0    rescued=0    ignored=0
 
-   Code successfully done and created those users on node server
+it's worked successfully done and created users on node server from master node
      
      
      
