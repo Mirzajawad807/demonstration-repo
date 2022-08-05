@@ -8,22 +8,11 @@
                          #!/bin/bash
                          sudo apt update
                          sudo apt install ansible -y
- 
+                         echo -e "[demo] \n172.31.84.8 ansible_ssh_user=ec2-user \n172.31.19.21 ansible_ssh_user=ec2-user" >> /etc/ansible/hosts
 
-# Installing sshpass  act as SSH authentication mechanism
- 
-   $ sudo apt install sshpass
- 
+  Above script also add both IPs and user_name of node1 and node2 server with ansible inventor file like /etc/ansible/hosts
 
-
-
-# Now, add both IPs and user_name of node1 and node2 server with ansible inventor file like /etc/ansible/hosts
-
-           
-            echo -e "[demo] \n172.31.84.8 ansible_ssh_user=ec2-user \n172.31.19.21 ansible_ssh_user=ec2-user" >> /etc/ansible/hosts
-
-   Once finish with this setup in host file
- 
+            
  
 # Remove comment (#) inside /etc/ansible/ansible.cfg file
    
@@ -34,7 +23,7 @@
  
 
 
-Allow PasswordAuthentication in server side on your both node server inside /etc/ssh/sshd file
+# Allow PasswordAuthentication in server side on your both node server inside /etc/ssh/sshd file
             
  $ sudo vim /etc/ssh/sshd
    
