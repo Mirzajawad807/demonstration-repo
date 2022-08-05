@@ -1,7 +1,7 @@
 # Install Ansible and Connect to Remote Hosts with SSH (Password-Based authentication)
 
 
- Ansible Installation on Ubuntu 20.04 Or can install any OS Linux/Windows based dependencies
+ Ansible Installation on Ubuntu 20.04
            
   $ install-ansible.sh       
              
