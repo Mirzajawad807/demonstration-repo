@@ -1,7 +1,7 @@
-# SSH Password-Based authentication to connect to the node from Master node
+# Install Ansible and Connect to Remote Hosts with SSH (Password-Based authentication)
 
 
---------First install Ansible on Ubuntu 20.04--------------------
+ Ansible Installation on Ubuntu 20.04 Or can install any OS Linux/Windows based dependencies
            
   $ install-ansible.sh       
              
