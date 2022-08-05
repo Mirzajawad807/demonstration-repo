@@ -1,7 +1,7 @@
 # SSH Password-Based authentication to connect to the node from Master node
 
 
----------Ansible installation on Ubuntu 20.04.------------------------------------------------
+--------First install Ansible on Ubuntu 20.04--------------------
            
   $ install-ansible.sh       
              
