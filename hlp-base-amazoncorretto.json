@@ -1,0 +1,967 @@
+{
+  "architecture": "amd64",
+  "author": "",
+  "created": "1667585838000",
+  "customerUuid": "74997335-beb6-4671-83a9-d342477bd65e",
+  "dockerVersion": "",
+  "imageId": "8e93472b20c1",
+  "instrumentationState": null,
+  "instrumentedFrom": null,
+  "isDockerHubOfficial": null,
+  "isInstrumented": null,
+  "label": null,
+  "lastFoundOnHost": {
+    "hostname": "ip-10-201-48-102.pt.sonynei.net",
+    "ipAddress": "10.201.48.102",
+    "lastUpdated": "2022-11-05T22:26:20.504Z",
+    "sensorUuid": "1b40ba2f-4f4d-4d8a-9098-637f6c2b0da2",
+    "uuid": "5d0e2546-b715-4df2-b9d8-3fa19786456d"
+  },
+  "lastScanned": "1667687697810",
+  "layers": [
+    {
+      "comment": "buildkit.dockerfile.v0",
+      "created": "1667585838000",
+      "createdBy": "RUN /bin/sh -c /usr/bin/yum -y update &&     /usr/bin/yum clean all &&     sed -i -e 's/enabled=1/enabled=0/' /etc/yum.repos.d/corretto.repo &&     rm -rf /var/cache/yum &&     find / -perm /6000 -type f -exec chmod a-s {} \\; 2> /dev/null || true # buildkit",
+      "id": "8e93472b20c1",
+      "sha": "8e93472b20c171d38b5563aaf365ef6923749592076371c9ecdc5dea8aa1ad66",
+      "size": "33243476",
+      "tags": [
+        "466131539206.dkr.ecr.us-west-2.amazonaws.com/hlp-base-amazoncorretto:1.0.0-20221104T1117",
+        "890655436785.dkr.ecr.us-west-2.amazonaws.com/engine/base-amazoncorretto:release-1.0.0-20221104T1117",
+        "743593264885.dkr.ecr.us-west-2.amazonaws.com/hlp-base-amazoncorretto:release-1.0.0-20221104T1117",
+        "466131539206.dkr.ecr.us-west-2.amazonaws.com/hlp-base-amazoncorretto:release-1.0.0-20221104T1117",
+        "base-amazoncorretto:latest",
+        "qualys_scan_target:8e93472b20c171d38b5563aaf365ef6923749592076371c9ecdc5dea8aa1ad66",
+        "743593264885.dkr.ecr.us-west-2.amazonaws.com/hlp-base-amazoncorretto:1.0.0-20221104T1117",
+        "890655436785.dkr.ecr.us-west-2.amazonaws.com/hlp-base-amazoncorretto:release-1.0.0-20221104T1117",
+        "890655436785.dkr.ecr.us-west-2.amazonaws.com/engine/base-amazoncorretto:1.0.0-20221104T1117",
+        "890655436785.dkr.ecr.us-west-2.amazonaws.com/hlp-base-amazoncorretto:1.0.0-20221104T1117"
+      ]
+    },
+    {
+      "comment": "",
+      "created": "1666314513000",
+      "createdBy": "ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto",
+      "id": null,
+      "sha": null,
+      "size": "0",
+      "tags": null
+    },
+    {
+      "comment": "",
+      "created": "1666314513000",
+      "createdBy": "ENV LANG=C.UTF-8",
+      "id": null,
+      "sha": null,
+      "size": "0",
+      "tags": null
+    },
+    {
+      "comment": "",
+      "created": "1666314513000",
+      "createdBy": "|1 version=1.8.0_352.b08-1 /bin/sh -c set -eux     && export GNUPGHOME=\"$(mktemp -d)\"     && curl -fL -o corretto.key https://yum.corretto.aws/corretto.key     && gpg --batch --import corretto.key     && gpg --batch --export --armor '6DC3636DAE534049C8B94623A122542AB04F24E3' > corretto.key     && rpm --import corretto.key     && rm -r \"$GNUPGHOME\" corretto.key     && curl -fL -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo     && grep -q '^gpgcheck=1' /etc/yum.repos.d/corretto.repo     && echo \"priority=9\" >> /etc/yum.repos.d/corretto.repo     && yum install -y java-1.8.0-amazon-corretto-devel-$version     && (find /usr/lib/jvm/java-1.8.0-amazon-corretto -name src.zip -delete || true)     && yum install -y fontconfig     && yum clean all",
+      "id": null,
+      "sha": null,
+      "size": "184027289",
+      "tags": null
+    },
+    {
+      "comment": "",
+      "created": "1666314492000",
+      "createdBy": "ARG version=1.8.0_352.b08-1",
+      "id": null,
+      "sha": null,
+      "size": "0",
+      "tags": null
+    },
+    {
+      "comment": "",
+      "created": "1666311590000",
+      "createdBy": "CMD [\"/bin/bash\"]",
+      "id": null,
+      "sha": null,
+      "size": "0",
+      "tags": null
+    },
+    {
+      "comment": "",
+      "created": "1666311589000",
+      "createdBy": "ADD file:33ce740675602f8911c110c617b08d74ebe9c26c82226b4815019d8c2d0a2263 in / ",
+      "id": null,
+      "sha": null,
+      "size": "164317401",
+      "tags": null
+    }
+  ],
+  "operatingSystem": "Amazon Linux 2",
+  "registryUuid": null,
+  "repo": [
+    {
+      "registry": "466131539206.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "hlp-base-amazoncorretto",
+      "tag": "release-1.0.0-20221104T1117"
+    },
+    {
+      "registry": "890655436785.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "hlp-base-amazoncorretto",
+      "tag": "1.0.0-20221104T1117"
+    },
+    {
+      "registry": "docker.io",
+      "repository": "base-amazoncorretto",
+      "tag": "latest"
+    },
+    {
+      "registry": "890655436785.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "engine/base-amazoncorretto",
+      "tag": "1.0.0-20221104T1117"
+    },
+    {
+      "registry": "743593264885.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "hlp-base-amazoncorretto",
+      "tag": "release-1.0.0-20221104T1117"
+    },
+    {
+      "registry": "890655436785.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "engine/base-amazoncorretto",
+      "tag": "release-1.0.0-20221104T1117"
+    },
+    {
+      "registry": "466131539206.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "hlp-base-amazoncorretto",
+      "tag": "1.0.0-20221104T1117"
+    },
+    {
+      "registry": "890655436785.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "hlp-base-amazoncorretto",
+      "tag": "release-1.0.0-20221104T1117"
+    },
+    {
+      "registry": "743593264885.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "hlp-base-amazoncorretto",
+      "tag": "1.0.0-20221104T1117"
+    }
+  ],
+  "repoDigests": [
+    {
+      "digest": "9a12dfa894c86cc361c5b35fad41133a293a70d80a1d236e4ec1b863863c1353",
+      "registry": "466131539206.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "hlp-base-amazoncorretto"
+    },
+    {
+      "digest": "9a12dfa894c86cc361c5b35fad41133a293a70d80a1d236e4ec1b863863c1353",
+      "registry": "743593264885.dkr.ecr.us-west-2.amazonaws.com",
+      "repository": "hlp-base-amazoncorretto"
+    }
+  ],
+  "scanType": null,
+  "scanTypes": [
+    "DYNAMIC"
+  ],
+  "sha": "8e93472b20c171d38b5563aaf365ef6923749592076371c9ecdc5dea8aa1ad66",
+  "size": 381588508,
+  "softwares": [
+    {
+      "fixVersion": null,
+      "name": "libdb-utils",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "5.3.21-24.amzn2.0.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "coreutils",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "8.22-24.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "diffutils",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.3-5.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "keyutils-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.5.8-3.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libcurl",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "7.79.1-4.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "libmetalink",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.1.3-13.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "info",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "5.1-5.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "gpg-pubkey",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "c87f5b1a-593863f8"
+    },
+    {
+      "fixVersion": null,
+      "name": "java-1.8.0-amazon-corretto-devel",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.8.0_352.b08-1"
+    },
+    {
+      "fixVersion": null,
+      "name": "libassuan",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.1.0-3.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "pcre",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "8.32-17.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libxml2",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.9.1-6.amzn2.5.6"
+    },
+    {
+      "fixVersion": null,
+      "name": "file-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "5.11-36.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "libverto",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.2.5-4.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libtasn1",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.10-1.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "glib2",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.56.1-9.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "fontconfig",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.13.0-4.3.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "gpgme",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.3.2-5.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "freetype",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.8-14.amzn2.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "dejavu-fonts-common",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.33-6.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "tzdata",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2022e-1.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "gnupg2",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.0.22-5.amzn2.0.5"
+    },
+    {
+      "fixVersion": null,
+      "name": "nss-pem",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.0.3-5.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libmount",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.30.2-2.amzn2.0.7"
+    },
+    {
+      "fixVersion": null,
+      "name": "setup",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.8.71-10.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "rpm",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.11.3-48.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libffi",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.0.13-18.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "nss-softokn-freebl",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.67.0-3.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "libsepol",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.5-8.1.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "gmp",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "6.0.0-15.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "popt",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.13-16.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "shared-mime-info",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.8-4.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "ncurses-base",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "6.0-8.20170212.amzn2.1.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "python-urlgrabber",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.10-9.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "pinentry",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.8.1-17.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libcrypt",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.26-61.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libdb",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "5.3.21-24.amzn2.0.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "krb5-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.15.1-37.amzn2.2.4"
+    },
+    {
+      "fixVersion": null,
+      "name": "chkconfig",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.7.4-1.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "gpg-pubkey",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "b04f24e3-5de94a19"
+    },
+    {
+      "fixVersion": null,
+      "name": "findutils",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.5.11-6.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "ncurses",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "6.0-8.20170212.amzn2.1.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "python2-rpm",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.11.3-48.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libblkid",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.30.2-2.amzn2.0.7"
+    },
+    {
+      "fixVersion": null,
+      "name": "basesystem",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "10.0-7.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "nspr",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.32.0-1.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "bzip2-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.0.6-13.amzn2.0.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "cyrus-sasl-lib",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.1.26-24.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "openldap",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.4.44-23.amzn2.0.4"
+    },
+    {
+      "fixVersion": null,
+      "name": "xz-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "5.2.2-1.amzn2.0.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "curl",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "7.79.1-4.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "nss",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.67.0-4.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "rpm-build-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.11.3-48.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "glibc-common",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.26-61.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "pygpgme",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.3-9.amzn2.0.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "openssl-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.0.2k-24.amzn2.0.4"
+    },
+    {
+      "fixVersion": null,
+      "name": "libgpg-error",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.12-3.amzn2.0.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "glibc",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.26-61.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "p11-kit-trust",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.23.22-1.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "yum-plugin-priorities",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.1.31-46.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "glibc-langpack-en",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.26-61.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "gawk",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.0.2-4.amzn2.1.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "ca-certificates",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2021.2.50-72.amzn2.0.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "libselinux",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.5-12.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libuuid",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.30.2-2.amzn2.0.7"
+    },
+    {
+      "fixVersion": null,
+      "name": "expat",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.1.0-14.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "dejavu-sans-fonts",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.33-6.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "amazon-linux-extras",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.0.1-1.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libssh2",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.4.3-12.amzn2.2.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "libstdc++",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "7.3.1-15.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "nss-util",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.67.0-1.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "python-iniparse",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.4-9.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "python-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.7.18-1.amzn2.0.5"
+    },
+    {
+      "fixVersion": null,
+      "name": "rpm-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.11.3-48.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "elfutils-libelf",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.176-2.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "system-release",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2-14.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "sqlite",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.7.17-8.amzn2.1.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "vim-data",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "9.0.475-1.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "p11-kit",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.23.22-1.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "libacl",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.2.51-14.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "ncurses-libs",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "6.0-8.20170212.amzn2.1.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "libcom_err",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.42.9-19.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "nss-softokn",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.67.0-3.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "libidn2",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.3.0-1.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "yum-plugin-ovl",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.1.31-46.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "libgcrypt",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.5.3-14.amzn2.0.3"
+    },
+    {
+      "fixVersion": null,
+      "name": "pyxattr",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.5.1-5.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libpng",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.5.13-8.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "glibc-minimal-langpack",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.26-61.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "grep",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.20-3.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "nss-sysinit",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.67.0-4.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "filesystem",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.2-25.amzn2.0.4"
+    },
+    {
+      "fixVersion": null,
+      "name": "bash",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.2.46-34.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "fontpackages-filesystem",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.44-8.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libattr",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.4.46-12.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "python",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.7.18-1.amzn2.0.5"
+    },
+    {
+      "fixVersion": null,
+      "name": "lua",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "5.1.4-15.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "zlib",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.2.7-19.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "readline",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "6.2-10.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "cpio",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.11-28.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "yum-metadata-parser",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.1.4-10.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "vim-minimal",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "9.0.475-1.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "python-pycurl",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "7.19.0-19.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "pth",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.0.7-23.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libnghttp2",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.41.0-1.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "pyliblzma",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.5.3-25.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "gdbm",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "1.13-6.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libcap",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "2.54-1.amzn2.0.1"
+    },
+    {
+      "fixVersion": null,
+      "name": "libunistring",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "0.9.3-9.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "sed",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "4.2.2-5.amzn2.0.2"
+    },
+    {
+      "fixVersion": null,
+      "name": "libgcc",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "7.3.1-15.amzn2"
+    },
+    {
+      "fixVersion": null,
+      "name": "yum",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.4.3-158.amzn2.0.6"
+    },
+    {
+      "fixVersion": null,
+      "name": "nss-tools",
+      "packagePath": null,
+      "scanType": "DYNAMIC",
+      "version": "3.67.0-4.amzn2.0.2"
+    }
+  ],
+  "source": [
+    "GENERAL",
+    "CICD"
+  ],
+  "updated": "1667687697810",
+  "users": [
+    "root"
+  ],
+  "uuid": "fb7947c9-fa7a-3f55-b2b7-e32a335e174e",
+  "vulnerabilities": []
+}
