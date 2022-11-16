@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Running_python_script') {
             steps {
-                sh 'python3 packer_lis_creator.py'
+                sh 'python3 packer_list_creator.py'
             }
         }
     }
