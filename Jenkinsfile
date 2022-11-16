@@ -2,19 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Python_version') {
             steps {
-                echo 'Building...'
+                sh 'python --version'
+                sh 'python3 --version'
             }
         }
-        stage('Test') {
+        stage('Running_python_script') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'python3 packer_lis_creator.py'
             }
         }
     }
