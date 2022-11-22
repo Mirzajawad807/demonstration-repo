@@ -14,8 +14,8 @@ pipeline {
             }
         }
         stage('Running_python_script') {
-            steps {
-                sh 'capture_changelog.py'
+            steps {                
+                sh 'python3 capture_changelog.py'
             }
         }
     }
