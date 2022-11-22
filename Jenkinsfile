@@ -11,6 +11,7 @@ pipeline {
             steps {
                 sh 'python --version'
                 sh 'python3 --version'
+                sh 'pip3 install -r requirements.txt'
             }
         }
         stage('Running_python_script') {
