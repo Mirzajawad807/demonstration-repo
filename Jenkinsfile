@@ -9,7 +9,9 @@ pipeline {
         }
         stage('report link fetch') {
             steps {
-                env.QUALYS_REPORT = report(script: 'ls ./*.json', returnStdout: true)
+                script {
+                env.QUALYS_REPORT = report(script: 'ls ./*.json', returnStdout: true) 
+                }
             }
         }
         stage('generating artifact'){
