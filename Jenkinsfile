@@ -7,6 +7,17 @@ pipeline {
                 sh 'aws s3 ls'
             }
         }
+        stage('report link fetch') {
+            steps {
+                env.QUALYS_REPORT = report(script: 'ls ./*.json', returnStdout: true)
+            }
+        }
+        stage('generating artifact'){
+            steps {
+                archiveArtifacts artifacts: '**/*.json'
+
+            }
+        }
         stage('Python_version') {
             steps {
                 sh 'python --version'
