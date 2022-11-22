@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import json
 import boto3
+import os
 
 def lambda_handler():
     # Reading json file
-    file = open('hlp-base-amazoncorretto.json')
+    file = open(os.getenv('QUALYS_REPORT'))
     json_data = json.loads(file.read())
     
     header = 'Scanned Packages'
