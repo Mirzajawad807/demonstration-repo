@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Running_python_script') {
             steps {
-                sh 'python3 packer_list_creator.py'
+                sh 'capture_changelog.py'
             }
         }
     }
