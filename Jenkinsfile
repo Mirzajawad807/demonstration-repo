@@ -16,12 +16,11 @@ pipeline {
                 }
             }
         }
-        //stage('generating artifact'){
-          //  steps {
-            //    archiveArtifacts artifacts: '**/*.json'
-
-            //}
-        //}
+        stage('generating artifact'){
+            steps {
+                archiveArtifacts artifacts: './*.json'
+            }
+        }
         stage('Python_version') {
             steps {
                 sh 'python --version'
