@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+         stage('checking awscli configuration') {
+            steps {
+                sh 'aws s3 ls'
+            }
+        }
         stage('Python_version') {
             steps {
                 sh 'python --version'
