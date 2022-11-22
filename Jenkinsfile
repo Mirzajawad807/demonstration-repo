@@ -32,6 +32,8 @@ pipeline {
         stage('Running_python_script') {
             steps {                
                 sh 'python3 capture_changelog.py'
+                echo "$JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/archive"
+                sh 'ls "$JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/archive"'
             }
         }
     }
