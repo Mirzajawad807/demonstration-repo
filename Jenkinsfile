@@ -12,6 +12,7 @@ pipeline {
                 sh 'pwd'
                 script {
                 env.QUALYS_REPORT = report(script: 'ls ./*.json', returnStdout: true) 
+                sh 'echo $QUALYS_REPORT'
                 }
             }
         }
