@@ -9,17 +9,18 @@ pipeline {
         }
         stage('report link fetch') {
             steps {
+                sh 'pwd'
                 script {
                 env.QUALYS_REPORT = report(script: 'ls ./*.json', returnStdout: true) 
                 }
             }
         }
-        stage('generating artifact'){
-            steps {
-                archiveArtifacts artifacts: '**/*.json'
+        //stage('generating artifact'){
+          //  steps {
+            //    archiveArtifacts artifacts: '**/*.json'
 
-            }
-        }
+            //}
+        //}
         stage('Python_version') {
             steps {
                 sh 'python --version'
