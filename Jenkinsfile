@@ -18,7 +18,8 @@ pipeline {
         }
         stage('generating artifact'){
             steps {
-                archiveArtifacts artifacts: './*.json'
+                sh 'echo "hello" > hello.txt'
+                archiveArtifacts artifacts: '**/*.txt'
             }
         }
         stage('Python_version') {
